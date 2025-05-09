@@ -2,8 +2,8 @@
 //  SPStallTester.h
 //  QQMusic
 //
-//  Created by sheepliu(刘子洋) on 2020/1/7.
-//  Copyright © 2020 Tencent. All rights reserved.
+//  Created by tzuyangliu on 05/09/2025.
+//  Copyright (c) 2025 tzuyangliu. All rights reserved.
 //
 //  代码执行卡死检测
 
