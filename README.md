@@ -25,21 +25,21 @@ pod 'SPStallTester'
 
 ```Objective-C
 SPStallTestCase *testCase = [[SPStallTestCase alloc] initWithTestName:@"`Pasteboard`" testBlock:^BOOL{
-        // 思路：创建一个剪贴板，看是否可以正常返回，如果卡死的话这个函数就不会返回了
-        UIPasteboard *p = [UIPasteboard pasteboardWithName:@"xxx" create:YES];
-        // 如果返回的剪贴板为空，认为逻辑失败
-        return p != nil;
-    } timeCostLimit:5];
+    // 思路：创建一个剪贴板，看是否可以正常返回，如果卡死的话这个函数就不会返回了
+    UIPasteboard *p = [UIPasteboard pasteboardWithName:@"xxx" create:YES];
+    // 如果返回的剪贴板为空，认为逻辑失败
+    return p != nil;
+} timeCostLimit:5];
 ```
 
 2. 在合适的时机通过 `SPStallTester` 执行检测：
 
 ```Objective-C
 [SPStallTester.sharedInstance runTestWithTestCase:testCase completion:^(SPStallTestTask * _Nonnull task) {
-        // 返回执行结果（成功、失败、超时）
-    } expireButFinishBlock:^(SPStallTestTask * _Nonnull task) {
-        // 超时但最终执行完成（成功、失败）
-    }];
+    // 返回执行结果（成功、失败、超时）
+} expireButFinishBlock:^(SPStallTestTask * _Nonnull task) {
+    // 超时但最终执行完成（成功、失败）
+}];
 ```
 
 ## Author
